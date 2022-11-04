@@ -88,7 +88,7 @@ db.on("connected", function () {
 
 - import packages for OAuth system
   - express-session
-  - pasport
+  - passport
   - passport-google-oauth
 - set up middleware for sessions
 - set up middleware for passport
