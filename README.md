@@ -1,31 +1,39 @@
 # Express Project Boilerplate Checklist
 
-## Setting Up Express 
+## Setting Up A New Express App
 
 - Run `express-generator` to scaffold express app with: `express -e project-name-here`
-- `cd` into newly generated project folder
-- install node packages with  `npm i` 
-- Rename `app.js` to `server.js`
+- `cd` into newly generated project
+- install node packages with `npm i` or `npm install`
+- rename `app.js` to `server.js`
 - change line 7 on `bin/www` to be:
-```
-var app = require('../server');
-```
-- Run Nodemon before advancing to next steps to insure setup is correct. Nodemon should say `[nodemon] starting node ./bin/www`
 
-## Setting up Enviroment Vars
-- Install dotenv package with `npm i dotenv`
-- Require dotenv package in `server.js`
-- `touch .env` file on the root, base, level of the project to make a .env file to hold secret vars
-- in `server.js` on line 7, below package imports and add this: `require('dotenv').config();`
-
-## Set up MongoDB Connection
-- run `npm i mongoose` to install mongoose package
-- Inside `env` create a line with `DATABASE_URL=MONGODBCONNECTION STRING HERE`
-- If using hosted MongoDB, make sure MongoDB service is running
-- `mkdir config` to make config folder
-- `touch database.js` to have a database connection file
-- inside of `database.js` have this content:
 ```
+var app = require("../server");
+```
+
+- Run Nodemon before advancing to next section.
+  - Nodemon should say `node ./bin/www`
+
+## Setting Up Environment Variables
+
+- install dotenv package with `npm install dotenv`
+- require dotenv package in `server.js`
+- run `touch .env` file on the root, or base, level of the project to make a .env file to hold secret variables
+- in `server.js` on line 7, below package imports add this line:
+  - `require("dotenv").config();`
+
+## Set Up MongoDB Connection
+
+- run `npm install mongoose` to install Mongoose.js package
+- Inside `.env`, create a line with `DATABASE_URL=MONGODBCONNECTION STRING HERE`
+  - If using localhost MongoDB, make sure MongoDB service is running on your computer
+  - If using hosted MongoDB database, get connection string from MongoDB Atlas
+- `mkdir config` to make config file
+- `touch database.js` to have database connection file
+- inside of `database.js`, have this content:
+
+```js
 const mongoose = require("mongoose");
 
 mongoose.connect(process.env.DATABASE_URL);
@@ -71,10 +79,11 @@ db.on("connected", function () {
 - set up our .env file with variables for OAuth
 
 ```
-  DATABASE_URL="mongodb://localhost/myprojectdb"
-  GOOGLE_CALLBACK=http://localhost:3000/oauth2callback
-  GOOGLE_CLIENT_ID=GET IT FROM GOOGLE
-  GOOGLE_CLIENT_SECRET=GET IT FROM GOOGLE
+DATABASE_URL=YOUR VALUE HERE
+GOOGLE_CALLBACK=http://localhost:3000/oauth2callback
+GOOGLE_CLIENT_ID=YOUR VALUE HERE
+GOOGLE_SECRET=YOUR VALUE HERE
+SECRET=YOUR VALUE HERE
 ```
 
 ### Getting .env values from Google Cloud Developer Console
