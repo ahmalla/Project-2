@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-var plumbus = require('rickmortyapi')
+const Schema = mongoose.Schema;
 
 const episodeSchema = new Schema({
     id: { type: Number },
     name: { type: String },
     air_date: { type: String },
     episode: { type: String},
-    characters: { type: Array },
+    characters: { type: [] },
     url: { type: String}
 })
 

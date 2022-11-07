@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var passport = require("passport");
-var plumbus = require('rickmortyapi')
+
 
 // import private route middleware
 const isLoggedIn = require("../config/auth");
