@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 
-
 // import private route middleware
 const isLoggedIn = require("../config/auth");
 
