@@ -19,22 +19,13 @@ router.post("/", async (req, res) => {
     })
     try {
         const newAuthor = await author.save()
-        res.redirect(`authors/${newAuthor.id}`)
-        res.redirect('authors')
+        // res.redirect(`authors/${newAuthor.id}`)
+        res.redirect(`authors`)
     } catch {
         res.render("authors/new", {
             author: author, 
         })
     }
-    // // saving new authors calling save method on author object
-    // author.save((err, newAuthor) => {
-    //     if (err) {
-    //         // if error render new page passing params on author page(handles dupes)
-    //         
-    //     } else {
-    //         // if no error bring back to author page
-    //         
-    // })
 });
 
 module.exports = router;
