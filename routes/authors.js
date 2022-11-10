@@ -3,8 +3,14 @@ var router = express.Router();
 const Author = require("../models/author");
 
 // all authors route
-router.get("/", (req, res) => {
-    res.render("authors/index")
+router.get("/", async (req, res) => {
+    try {
+        const authors = await Author.find({})
+        res.render("authors/index", { authors: authors })
+    } catch {
+        res.redirect("/")
+    }
+    
 });
 // New Author Route(displaying the form)
 router.get('/new', (req, res) => {
@@ -18,6 +24,7 @@ router.post("/", async (req, res) => {
         name: req.body.name
     })
     try {
+        // saving new author after saving the author in db
         const newAuthor = await author.save()
         // res.redirect(`authors/${newAuthor.id}`)
         res.redirect(`authors`)
