@@ -7,7 +7,7 @@ const isLoggedIn = require("../config/auth");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Book Emporium" });
+  res.render("index", { title: "Bookster" });
 });
 
 router.get("/private", isLoggedIn, function (req, res) {
