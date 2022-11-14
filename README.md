@@ -161,3 +161,8 @@ AAU, I want to...
 - Add Author
 - View all Authors
 
+## Future Updates
+
+- recover lost work
+- increased functionality ( multiple books per author feature)
+  - enhanced search capabilities

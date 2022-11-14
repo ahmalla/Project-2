@@ -1,7 +1,9 @@
 var express = require("express");
 var router = express.Router();
+var multer = require("multer");
 const Book = require("../models/book");
 const Author = require("../models/author")
+
 
 // all books route
 router.get("/", async (req, res) => {
@@ -30,7 +32,13 @@ router.get('/new', async (req, res) => {
 
 // create new books route
 router.post("/", async (req, res) => {
-    res.send("Create Book")
+    const book = new Book({
+      title: req.body.title,
+      author: req.body.author,
+      publishDate: new Date(req.body.publishDate),
+      pageCount: req.body.pageCount,
+      description: req.body.description
+    })
 });
 
 module.exports = router;
