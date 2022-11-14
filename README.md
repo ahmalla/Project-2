@@ -128,7 +128,7 @@ SECRET=YOUR VALUE HERE
 - PROFIT!!! -->
 # Book Library Full-Stack Application
 
-## VERVIEW
+## OVERVIEW
 
 A database of books where users can add their Favorite books along with fun cover images.
 
