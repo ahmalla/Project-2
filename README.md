@@ -1,4 +1,4 @@
-# Express Project Boilerplate Checklist
+<!-- # Express Project Boilerplate Checklist
 
 ## Setting Up A New Express App
 
@@ -125,4 +125,39 @@ SECRET=YOUR VALUE HERE
 
 ## ????
 
-- PROFIT!!!
+- PROFIT!!! -->
+# Book Library Full-Stack Application
+
+##OVERVIEW
+
+A database of books where users can add their Favorite books along with fun cover images.
+
+### Technologies Used
+
+- OAuth
+- MongoDB
+- Mongoose
+- Express JS
+- Node JS
+- HTML5
+- CSS & Bootstrap
+- JavaScript
+
+## Trello
+[Trello](https://trello.com/b/vzUk9mJ1/project-2-bookster)
+
+## EDR
+![EDR](images/EDR.png)
+
+## WireFrame
+[WireFrame](images/IMG_4985.png)
+
+## User Stories
+AAU, I want to...
+- Log in with my Google Account
+- Navigate the app with a navbar
+- Add books
+- View all books
+- Add Author
+- View all Authors
+
