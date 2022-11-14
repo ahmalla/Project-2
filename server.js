@@ -8,7 +8,7 @@ var logger = require("morgan");
 var session = require("express-session");
 var passport = require("passport");
 var methodOverride = require("method-override");
-var bodyParser = require("body-parser")
+var bodyParser = require("body-parser");
 
 require("dotenv").config();
 require("./config/database");

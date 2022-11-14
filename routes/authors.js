@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     
 });
 // New Author Route(displaying the form)
-router.get('/new', (req, res) => {
+router.get("/new", (req, res) => {
     res.render('authors/new', { author: new Author() })
 });
 
