@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<%- include('./partials/header') %>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
-  <body>
-    <%- include('./partials/navbar') %>
-      <!-- Set Up Bootstrap Layout System -->
-      <div class="container">
-        <div class="row">
-          <h1 class="text-center">Welcome to <%= title %>
-          </h1>
-        </div>
-      </div>
-      </p>
-  </body>
+<body>
+  <p>Welcome to <%= title %>
+  </p>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <% if (user) { %>
+      <li><a href="/private">Private Page</a></li>
+      <li><a href="/logout">Log Out</a></li>
+      <% } else { %>
+        <li><a href="/auth/google">Log In</a></li>
+        <% } %>
+  </ul>
+</body>
 
+</html>
