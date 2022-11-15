@@ -59,14 +59,19 @@ router.put('/:id', async (req, res) => {
     let author
     try {
         author = await Author.findById(req.params.id)
+        author.name = req.body.name
         // saving new author after saving the author in db
         await author.save()
-        res.redirect(`authors/${author.id}`)
+        res.redirect(`/authors/${author.id}`)
         // res.redirect(`authors`)
     } catch {
-        res.render("authors/new", {
+        if (author == null) {
+            res.redirect("/")
+        } else {
+        res.render("authors/edit", {
             author: author, 
         })
+    }
     }
 })
 
