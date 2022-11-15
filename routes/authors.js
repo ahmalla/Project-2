@@ -50,5 +50,8 @@ router.get('/:id/edit', (req, res) => {
     res.send('Edit Author ' + req.params.id)
 });
 
+router.put('/:id', (req, res) => {
+    res.send('Update Author ' + req.params.id)
+});
 
 module.exports = router;
