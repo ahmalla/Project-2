@@ -3,7 +3,7 @@ var router = express.Router();
 const Author = require("../models/author");
 
 // all authors route
-router.get("/", async (req, res) => {
+router.get("/", isLoggedIn, async (req, res) => {
     let searchOptions = {}
     if (req.query.name != null && req.query.name !== '') {
         searchOptions.name = new RegExp(req.query.name, 'i')
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
     
 });
 // New Author Route(displaying the form)
-router.get('/new', (req, res) => {
+router.get('/new', isLoggedIn, (req, res) => {
     res.render('authors/new', { author: new Author() })
 });
 
