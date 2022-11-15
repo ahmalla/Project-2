@@ -54,4 +54,7 @@ router.put('/:id', (req, res) => {
     res.send('Update Author ' + req.params.id)
 });
 
+router.delete('/:id', (req, res) => {
+    res.send('Delete Author ' + req.params.id)
+});
 module.exports = router;
