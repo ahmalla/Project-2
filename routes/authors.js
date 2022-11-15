@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const Author = require("../models/author");
+const isLoggedIn = require("../config/auth");
 
 // all authors route
 router.get("/", isLoggedIn, async (req, res) => {
@@ -41,7 +42,9 @@ router.post("/", async (req, res) => {
     }
 });
 
-
+router.get('/:id', (req, res) => {
+    res.send('Show Author' + req.params.id)
+});
 
 
 module.exports = router;

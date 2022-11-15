@@ -3,16 +3,17 @@ var router = express.Router();
 var multer = require("multer");
 const Book = require("../models/book");
 const Author = require("../models/author")
+const isLoggedIn = require("../config/auth");
 
 
 // all books route
-router.get("/", async (req, res) => {
+router.get("/", isLoggedIn, async (req, res) => {
     res.send("All Books")
     
     
 });
 // New book Route
-router.get('/new', async (req, res) => {
+router.get('/new', isLoggedIn, async (req, res) => {
    try {
     // get all authors
     const authors = await Author.find({})
