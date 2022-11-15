@@ -46,13 +46,31 @@ router.get('/:id', (req, res) => {
     res.send('Show Author ' + req.params.id)
 });
 
-router.get('/:id/edit', (req, res) => {
-    res.send('Edit Author ' + req.params.id)
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const author = await Author.findById(req.params.id)
+        res.render('authors/edit', { author: author })
+    } catch {
+        res.redirect("/authors")
+    }
 });
 
 router.put('/:id', (req, res) => {
-    res.send('Update Author ' + req.params.id)
-});
+    const author = new Author({
+        // explicitly passing name so the user cant enter something else and reset things, like id
+        name: req.body.name
+    })
+    try {
+        author = await Author.findById(req.params.id)
+        // saving new author after saving the author in db
+        const newAuthor = await author.save()
+        // res.redirect(`authors/${newAuthor.id}`)
+        res.redirect(`authors`)
+    } catch {
+        res.render("authors/new", {
+            author: author, 
+        })
+    }
 
 router.delete('/:id', (req, res) => {
     res.send('Delete Author ' + req.params.id)
